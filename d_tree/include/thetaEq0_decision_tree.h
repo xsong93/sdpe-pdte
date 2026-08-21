@@ -43,6 +43,7 @@ struct PlainNodeTE0 {
 struct DecisionTreeTE0CPC {
     int nodeCount{};
     int featureCount{};
+    int quantWidth{};
     std::vector<PlainNodeTE0> nodes;
     std::vector<int> leafParentsIdx;
     std::vector<Integer> leafValues;

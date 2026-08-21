@@ -2,6 +2,7 @@
 // Created by Xintong Song on 2026/5/29.
 //
 
+#include <algorithm>
 #include <vector>
 
 #include "include/thread_balance.h"
@@ -23,6 +24,11 @@ void encClientValV2I(ClientData& clientData, const vector<int>& val, const Trlwe
 }
 
 void buildV2ITreeCPC(DecisionTreeV2ICPC& tree, const vector<Node>& nodes, const YatfheParameters& param) {
+    if (!(nodes[0].quantWidth > 0 && nodes[0].quantWidth <= param.N)) {
+        fprintf(stderr, "quantWidth = %d, param.N = %d\n", nodes[0].quantWidth, param.N);
+        throw std::runtime_error("quantWidth out of range");
+    }
+    tree.quantWidth = nodes[0].quantWidth;
     for (int x = 0; x < nodes.size(); x++) {
         const auto& node = nodes[x];
         auto& treeNode = tree.nodes[x];
@@ -44,7 +50,11 @@ void buildV2ITreeCPC(DecisionTreeV2ICPC& tree, const vector<Node>& nodes, const 
                 treeNode.threshold.coeffs[i] = x == 0 ? 1 : 1 << (node.depthOnTree - 1);
                 continue;
             }
-            treeNode.threshold.coeffs[i] = x == 0 ? 0 : -1 << (node.depthOnTree - 1);
+            if (x != 0 && i > param.N - tree.quantWidth) {
+                treeNode.threshold.coeffs[i] = -1 << (node.depthOnTree - 1);
+                continue;
+            }
+            treeNode.threshold.coeffs[i] = 0;
         }
 
         if (node.isLeaf) {

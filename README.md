@@ -56,7 +56,7 @@ cd d_tree/data
 sha256sum -c SHA256SUMS                      # optional
 tar -xf trees.tar.zst                        # → trees/
 
-# GBDT. Expands to ~13 GB.
+# GBDT. Expands to ~14 GB.
 cat gbdt.tar.zst.part* | tar --zstd -xf -    # → gbdt/
 ```
 

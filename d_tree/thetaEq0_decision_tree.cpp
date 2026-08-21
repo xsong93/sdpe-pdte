@@ -24,7 +24,12 @@ void encClientValTE0(ClientDataTE0& clientData, const vector<int>& val, const Tr
 }
 
 void buildTE0TreeCPC(DecisionTreeTE0CPC& tree, const vector<Node>& nodes, const YatfheParameters& param) {
+    if (!(nodes[0].quantWidth > 0 && nodes[0].quantWidth <= param.N)) {
+        fprintf(stderr, "quantWidth = %d, param.N = %d\n", nodes[0].quantWidth, param.N);
+        throw std::runtime_error("quantWidth out of range");
+    }
     int leafCount = 0;
+    tree.quantWidth = nodes[0].quantWidth;
     for (int x = 0; x < nodes.size(); x++) {
         const auto& node = nodes[x];
         auto& treeNode = tree.nodes[x];
@@ -42,7 +47,7 @@ void buildTE0TreeCPC(DecisionTreeTE0CPC& tree, const vector<Node>& nodes, const 
                 treeNode.threshold.coeffs[i] = 0;
                 continue;
             }
-            treeNode.threshold.coeffs[i] = -1;
+            treeNode.threshold.coeffs[i] = i > param.N - tree.quantWidth ? -1 : 0;
         }
 
         if (node.isLeaf) {

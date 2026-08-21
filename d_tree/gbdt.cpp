@@ -70,6 +70,7 @@ static ForestData loadForestFromJson(const string& path) {
                 n.at("leafValueRight").get<int>(),
                 n.at("pathValueLeft").get<int>(),
                 n.at("pathValueRight").get<int>(),
+                n.at("quantWidth").get<int>(),
             });
         }
         fd.nodes.push_back(std::move(treeNodes));

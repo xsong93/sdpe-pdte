@@ -48,6 +48,7 @@ struct DecisionTreeV2ICPC {
     int nodeCount{};
     int featureCount{};
     int bucketSize{};
+    int quantWidth{};
     std::vector<PlainNode> nodes;
     std::vector<int> leafParentsIdx;
     std::vector<std::pair<int,int>> leafSlots;

@@ -18,6 +18,7 @@ struct Node {
     int leafValueRight{0};
     int pathValueLeft{0};
     int pathValueRight{0};
+    int quantWidth{0};
 };
 
 #endif // V2I_DECISION_TREE_H
