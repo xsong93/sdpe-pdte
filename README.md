@@ -2,6 +2,15 @@
 
 Homomorphic decision tree evaluation on top of `yatfhe`.
 
+## PBS = leaf-parents
+
+Each tree level carries a signed dyadic label, path sums are accumulated per leaf-parent, and both children of a leaf-parent 
+are packed into one test polynomial. A single PBS on that sum then both identifies the active child and returns its class label, 
+while every leaf-parent off the active path extracts zero.
+
+    PBS per inference = |P| leaf-parents
+    perfect binary tree:  |L| = 2|P|,  and  |P| = 2^(d-1) at depth d
+
 ## Dependencies
 
 | Dependency | Used by | Notes |
