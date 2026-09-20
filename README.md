@@ -1,5 +1,7 @@
 # d_tree
 
+This repository is the code for the paper "Signed Dyadic Path Encoding for Efficient Non-Interactive Private Decision Tree Evaluation over TFHE", submitted to IEEE Transactions on Emerging Topics in Computing and currently under review.
+
 Homomorphic decision tree evaluation on top of `yatfhe`.
 
 ## PBS = leaf-parents
