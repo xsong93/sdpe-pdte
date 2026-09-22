@@ -25,16 +25,13 @@ while every leaf-parent off the active path extracts zero.
 
 ### YATFHE
 
-YATFHE is a TFHE library from a concurrent submission, kept in a separate private repository and included here as a git 
-submodule. No YATFHE source lives in this repo, and a plain `git clone` leaves `third_party/yatfhe/` empty.
-Access can be provided on request.
+YATFHE is a TFHE library, and included here as a git submodule.
 
 ```bash
 git submodule update --init --recursive
 ```
 
-If you have it checked out elsewhere, or received it as an archive, point the build at that copy instead. `YATFHE_ROOT` 
-is the directory containing `yatfhe/CMakeLists.txt`:
+If you have it checked out elsewhere, or received it as an archive, point the build at that copy instead. `YATFHE_ROOT` is the directory containing `yatfhe/CMakeLists.txt`:
 
 ```bash
 YATFHE_ROOT=/path/to/yatfhe bash build_d_tree.sh
