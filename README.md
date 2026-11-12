@@ -1,6 +1,6 @@
 # d_tree
 
-A paper describing this artifact is under review. Citation details will be added upon publication..
+A paper describing this artifact is under review. Citation details will be added upon publication.
 
 Homomorphic decision tree evaluation on top of `yatfhe`.
 
