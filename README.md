@@ -87,3 +87,23 @@ bash run_gbdt.sh    # 56-bit: GBDT on steel
 
 Each depth runs at the parameter set that is cost-optimal for that scheme at that depth. The set used is recorded in 
 each output file's `setup` block.
+
+## Citing
+
+If you use this code in your work, please cite
+
+Xintong Song, Yiqiang Zhao, Qizhi Zhang, Yao Li, Jiaji He and Fei Zhao.
+*Signed Dyadic Path Encoding for Efficient Non-Interactive Private Decision Tree Evaluation over TFHE*.
+arXiv:2611.16818, 2026. <https://arxiv.org/abs/2611.16818>
+
+```bibtex
+@misc{song2026signeddyadicpathencoding,
+      title={Signed Dyadic Path Encoding for Efficient Non-Interactive Private Decision Tree Evaluation over TFHE},
+      author={Xintong Song and Yiqiang Zhao and Qizhi Zhang and Yao Li and Jiaji He and Fei Zhao},
+      year={2026},
+      eprint={2611.16818},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2611.16818},
+}
+```
